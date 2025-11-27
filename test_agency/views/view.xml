@@ -1,4 +1,24 @@
 <odoo>
+    <record id="view_order_form_custom" model="ir.ui.view">
+        <field name="name">sale.order.form.custom</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <group name="save_date" string="Programacion de fechas">
+                    <field name="check_in" string="Fecha de ingreso"/>
+                    <field name="check_out" string="Fecha de salida"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                <field name="pax" string="Pasajeros"/>
+                <field name="adt" string="Pasajeros Adultos"/>
+                <field name="chd" string="Pasajeros Niños"/>
+                <field name="age" string="Edad de los niños"/>
+                <field name="room_type" string="Tipo de habitacion"/>
+            </xpath>
+        </field>
+    </record>
 
     <record id="rt_action_counter" model="ir.actions.act_window">
         <field name="name">Counter</field>
