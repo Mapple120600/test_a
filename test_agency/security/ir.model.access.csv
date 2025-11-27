@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tipo_servicio_user,tipo.servicio.user,model_tipo_servicio,base.group_user,1,1,1,1
+access_tipo_servicio_manager,tipo.servicio.manager,model_tipo_servicio,base.group_system,1,1,1,1
+

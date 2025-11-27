@@ -8,8 +8,13 @@
 
     <record id="rt_action_tipo_servicios" model="ir.actions.act_window">
         <field name="name">Tipo de servicios</field>
-        <field name="res_model">sale.order</field>
+        <field name="res_model">tipo.servicio</field>
         <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un nuevo tipo de servicio
+            </p>
+        </field>
     </record>
 
     <menuitem id="rt_menu_counter"
@@ -23,6 +28,41 @@
             parent="sale.sale_menu_config_activities"
             action="rt_action_tipo_servicios"
             sequence="40"/>
+
+    <!-- Vistas para Tipo de Servicio -->
+    <record id="tipo_servicio_list_view" model="ir.ui.view">
+        <field name="name">tipo.servicio.list</field>
+        <field name="model">tipo.servicio</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list string="Tipos de Servicio">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="tipo_servicio_form_view" model="ir.ui.view">
+        <field name="name">tipo.servicio.form</field>
+        <field name="model">tipo.servicio</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Servicio">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="description" placeholder="Descripción del tipo de servicio..."/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- Vista extendida para productos -->
     <record id="product_template_form_view_inherit" model="ir.ui.view">

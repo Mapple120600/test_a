@@ -11,15 +11,10 @@ class ProductTemplate(models.Model):
         help='Proveedor del producto'
     )
     
-    tipo_servicio = fields.Selection(
-        [
-            ('consultoria', 'Consultoría'),
-            ('desarrollo', 'Desarrollo'),
-            ('soporte', 'Soporte'),
-            ('mantenimiento', 'Mantenimiento'),
-            ('otro', 'Otro'),
-        ],
+    tipo_servicio = fields.Many2one(
+        'tipo.servicio',
         string='Tipo de Servicio',
+        ondelete='set null',
         help='Tipo de servicio que representa el producto'
     )
 
