@@ -1,3 +1,27 @@
-<record>
-    
-</record>
+<odoo>
+
+    <record id="rt_action_counter" model="ir.actions.act_window">
+        <field name="name">Counter</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="rt_action_tipo_servicios" model="ir.actions.act_window">
+        <field name="name">Tipo de servicios</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="rt_menu_counter"
+            name="Counter"
+            parent="sale.sale_menu_config_activities"
+            action="rt_action_counter"
+            sequence="30"/>
+
+    <menuitem id="rt_menu_tipo_servicios"
+            name="Tipo de servicios"
+            parent="sale.sale_menu_config_activities"
+            action="rt_action_tipo_servicios"
+            sequence="40"/>
+
+</odoo>
