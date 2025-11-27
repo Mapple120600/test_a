@@ -24,4 +24,18 @@
             action="rt_action_tipo_servicios"
             sequence="40"/>
 
+    <!-- Vista extendida para productos -->
+    <record id="product_template_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.test_agency</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Agregar campos en la columna derecha después de Categoría -->
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="proveedor"/>
+                <field name="tipo_servicio"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
