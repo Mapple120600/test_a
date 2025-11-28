@@ -25,8 +25,10 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//list//field[@name='product_template_id']" position="after">
+            <xpath expr="//list//field[@name='product_template_id']" position="before">
                 <field name="proveedor" string="Proveedor" optional="hide"/>
+            </xpath>
+            <xpath expr="//list//field[@name='product_template_id']" position="after">
                 <field name="tipo_servicio" string="Tipo de servicio" optional="hide"/>
                 <field name="fecha_inicio" string="Fecha inicio" optional="hide"/>
                 <field name="fecha_fin" string="Fecha fin" optional="hide"/>
