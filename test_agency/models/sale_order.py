@@ -36,8 +36,8 @@ class SaleOrderLine(models.Model):
     tipo_servicio = fields.Many2one(
         'tipo.servicio',
         string='Tipo de servicio',
-        related='product_id.product_tmpl_id.tipo_servicio',
-        store=True, readonly=True,
+        # related='product_id.product_tmpl_id.tipo_servicio',
+        store=True,
     )
     
     fecha_inicio = fields.Date(string="Fecha de inicio")
@@ -88,5 +88,3 @@ class SaleOrderLine(models.Model):
             elif product_proveedor:
                 # Si no hay proveedor seleccionado, actualizarlo automáticamente
                 self.proveedor = product_proveedor
-    
-    

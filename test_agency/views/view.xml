@@ -29,7 +29,7 @@
                 <field name="proveedor" string="Proveedor" optional="hide"/>
             </xpath>
             <xpath expr="//list//field[@name='product_template_id']" position="attributes">
-                <attribute name="domain">['&amp;', ('sale_ok', '=', True), ('proveedor', '=', proveedor)]</attribute>
+                <attribute name="domain">[('sale_ok', '=', True), ('proveedor', '=', proveedor), ('tipo_servicio', '=', tipo_servicio)]</attribute>
             </xpath>
             <xpath expr="//list//field[@name='product_template_id']" position="after">
                 <field name="tipo_servicio" string="Tipo de servicio" optional="hide"/>
