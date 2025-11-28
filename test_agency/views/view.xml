@@ -20,11 +20,10 @@
         </field>
     </record>
 
-    <record id="rt_action_counter" model="ir.actions.act_window">
+    <record id="rt_action_counters" model="ir.actions.act_window">
         <field name="name">Counter</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">list,form</field>
-        <field name="domain">[('customer_rank', '>', 0)]</field>
     </record>
 
     <record id="rt_action_tipo_servicios" model="ir.actions.act_window">
@@ -39,9 +38,9 @@
     </record>
 
     <menuitem id="rt_menu_counter"
-            name="Counter"
+            name="Counters"
             parent="sale.sale_menu_config_activities"
-            action="rt_action_counter"
+            action="rt_action_counters"
             sequence="30"/>
 
     <menuitem id="rt_menu_tipo_servicios"
