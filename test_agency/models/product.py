@@ -6,8 +6,10 @@ from odoo import models, fields, api
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    proveedor = fields.Char(
+    proveedor = fields.Many2one(
+        'res.partner',
         string='Proveedor',
+        #domain=[('supplier_rank', '>', 0)],
         help='Proveedor del producto'
     )
     

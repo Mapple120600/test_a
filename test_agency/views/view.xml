@@ -22,8 +22,9 @@
 
     <record id="rt_action_counter" model="ir.actions.act_window">
         <field name="name">Counter</field>
-        <field name="res_model">sale.order</field>
+        <field name="res_model">res.partner</field>
         <field name="view_mode">list,form</field>
+        <field name="domain">[('customer_rank', '>', 0)]</field>
     </record>
 
     <record id="rt_action_tipo_servicios" model="ir.actions.act_window">
