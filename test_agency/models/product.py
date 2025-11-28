@@ -19,4 +19,4 @@ class ProductTemplate(models.Model):
         ondelete='set null',
         help='Tipo de servicio que representa el producto'
     )
-
+    

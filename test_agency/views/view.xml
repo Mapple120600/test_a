@@ -20,6 +20,20 @@
         </field>
     </record>
 
+    <record id="view_order_list_filter" model="ir.ui.view">
+        <field name="name">sale.order.list.filter</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list//field[@name='product_template_id']" position="after">
+                <field name="proveedor" string="Proveedor" optional="hide"/>
+                <field name="tipo_servicio" string="Tipo de servicio" optional="hide"/>
+                <field name="fecha_inicio" string="Fecha inicio" optional="hide"/>
+                <field name="fecha_fin" string="Fecha fin" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="rt_action_counters" model="ir.actions.act_window">
         <field name="name">Counter</field>
         <field name="res_model">res.partner</field>
