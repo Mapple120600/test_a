@@ -49,6 +49,7 @@ class SaleOrderLine(models.Model):
         # Siempre limpiar el producto cuando cambia el proveedor para forzar la selección correcta
         if self.product_id:
             self.product_id = False
+            self.name = False
         
         if self.proveedor:
             # Filtrar productos para mostrar solo los del proveedor seleccionado
