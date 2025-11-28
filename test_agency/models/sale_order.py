@@ -52,8 +52,7 @@ class SaleOrderLine(models.Model):
             self.name = False
         
         if self.proveedor:
-            # Filtrar productos para mostrar solo los del proveedor seleccionado
-            # Combinar con el dominio de sale_ok que ya existe
+
             return {
                 'domain': {
                     'product_id': ['&', ('sale_ok', '=', True), ('product_tmpl_id.proveedor', '=', self.proveedor.id)],
@@ -61,7 +60,7 @@ class SaleOrderLine(models.Model):
                 }
             }
         else:
-            # Si no hay proveedor, mostrar todos los productos con sale_ok
+
             return {
                 'domain': {
                     'product_id': [('sale_ok', '=', True)],
@@ -75,9 +74,9 @@ class SaleOrderLine(models.Model):
         if self.product_id:
             product_proveedor = self.product_id.product_tmpl_id.proveedor
             if self.proveedor:
-                # Si hay un proveedor seleccionado, validar que coincida
+
                 if product_proveedor and product_proveedor != self.proveedor:
-                    # Si no coincide, limpiar el producto y mostrar advertencia
+
                     self.product_id = False
                     return {
                         'warning': {
@@ -86,5 +85,5 @@ class SaleOrderLine(models.Model):
                         }
                     }
             elif product_proveedor:
-                # Si no hay proveedor seleccionado, actualizarlo automáticamente
+
                 self.proveedor = product_proveedor
