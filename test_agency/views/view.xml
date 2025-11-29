@@ -40,10 +40,76 @@
         </field>
     </record>
 
-    <record id="rt_action_counters" model="ir.actions.act_window">
-        <field name="name">Counter</field>
-        <field name="res_model">res.partner</field>
+    <record id="view_order_form_counter" model="ir.ui.view">
+        <field name="name">sale.order.form.counter</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="counter_id" string="Vendedor de la agencia"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="counter_view_form" model="ir.ui.view">
+        <field name="name">res.users.counter.form</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form >
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="login" string="Código" />
+                            <field name="name"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="is_counter" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="counter_view_list" model="ir.ui.view">
+        <field name="name">res.users.counter.list</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <list >
+                <field name="login" string="Código" />
+                <field name="name"/>
+                <!--field name="branch_id"/-->
+            </list>
+        </field>
+    </record>
+
+    <record id="action_counter_act_window" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Vendedores</field>
+        <field name="res_model">res.users</field>
         <field name="view_mode">list,form</field>
+        <field name="target">current</field>
+        <field name="domain">[('is_counter', '=', True), ('active', 'in', [True, False])]</field>
+        <field name="context">{'default_active': False, 'default_active_delivery': True, 'default_is_counter':True}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+            </p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_counter_act_window_tree">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="counter_view_list"/>
+        <field name="act_window_id" ref="action_counter_act_window"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_counter_act_window_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="counter_view_form"/>
+        <field name="act_window_id" ref="action_counter_act_window"/>
     </record>
 
     <record id="rt_action_tipo_servicios" model="ir.actions.act_window">
@@ -57,11 +123,11 @@
         </field>
     </record>
 
-    <menuitem id="rt_menu_counter"
-            name="Counters"
-            parent="sale.sale_menu_config_activities"
-            action="rt_action_counters"
-            sequence="30"/>
+    <menuitem id="menu_action_counter"
+        name="Counters"
+        action="action_counter_act_window"
+        parent="sale.sale_menu_config_activities"
+        sequence="30"/>
 
     <menuitem id="rt_menu_tipo_servicios"
             name="Tipo de servicios"
