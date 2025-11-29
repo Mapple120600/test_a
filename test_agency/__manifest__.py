@@ -8,7 +8,7 @@
     'description': """Test""",
     'author': 'Rapid Technologies SAC',
     'website': 'https://www.rapid.tech',
-    'depends': ['base','sale', 'product'],
+    'depends': ['base','sale', 'product','sale_management'],
     'data': [
         'security/ir.model.access.csv',
         'views/view.xml',
