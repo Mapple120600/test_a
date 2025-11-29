@@ -28,7 +28,7 @@
             <xpath expr="//list//field[@name='product_template_id']" position="before">
                 <field name="proveedor" string="Proveedor" optional="show"/>
                 <field name="tipo_servicio" string="Tipo de servicio" optional="show"/>
-                <field name="product_new_domain_ids" invisible="1"/>
+                <field name="product_new_domain_ids" invisible="1" optional="hide"/>
             </xpath>
             <xpath expr="//list//field[@name='product_template_id']" position="attributes">
                 <attribute name="domain">[('id', 'in', product_new_domain_ids)]</attribute>
