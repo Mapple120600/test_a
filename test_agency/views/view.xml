@@ -26,8 +26,8 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//list//field[@name='product_template_id']" position="before">
-                <field name="proveedor" string="Proveedor" optional="hide"/>
-                <field name="tipo_servicio" string="Tipo de servicio" optional="hide"/>
+                <field name="proveedor" string="Proveedor" optional="show"/>
+                <field name="tipo_servicio" string="Tipo de servicio" optional="show"/>
                 <field name="product_new_domain_ids" invisible="1"/>
             </xpath>
             <xpath expr="//list//field[@name='product_template_id']" position="attributes">
